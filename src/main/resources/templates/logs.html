@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:include="shared/head::head(${'ログ一覧'})">
+</head>
+<body>
+<header class="header index-header" th:include="shared/header::header"></header>
+<div class="body-wrapper">
+    <div th:object="${apiLogForm}">
+        <li class="error-message" th:each="error:${#fields.detailedErrors()}" th:text="${error.message}">
+        </li>
+    </div>
+    <form action="/logs/search" class="log-search-form group" method="get">
+        <label for="startDate">開始日</label>
+        <input id="startDate" name="startDate" th:errorclass="error-input" th:field="${apiLogForm.startDate}"
+               type="date">
+        <label for="endDate">終了日</label>
+        <input id="endDate" name="endDate" th:errorclass="error-input" th:field="${apiLogForm.endDate}" type="date">
+        <input class="submit-btn" type="submit" value="送信">
+    </form>
+
+    <div class="no-result-message" th:text="${noResultMessage}"></div>
+    <div class="results-message"
+         th:text="|${#temporals.format(startDate, 'yyyy年MM月dd日')} 〜 ${#temporals.format(endDate, 'yyyy年MM月dd日')}のログ結果|"
+         th:unless="${noResultMessage}">
+        間のログ
+    </div>
+
+    <table class="highlight logs-table" th:if="${searchResults}">
+        <thead class="logs-thead">
+        <tr>
+            <th>APIのURL</th>
+            <th>メソッド</th>
+            <th>ステータス</th>
+            <th>回数</th>
+            <th>平均処理時間(ms)</th>
+        </tr>
+        </thead>
+        <tr th:each="searchResult:${searchResults}" th:object="${searchResult}">
+            <td th:text="*{requestUrl}"></td>
+            <td th:text="*{requestMethod}"></td>
+            <td th:text="*{statusCode}"></td>
+            <td th:text="*{accessCount}"></td>
+            <td th:text="*{avgProcessingTime}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+.log-button-wrapper {
+    margin-top: 20px;
+}
+
+.log-search-form {
+
+    border: 2px solid #26a69a;
+    padding: 20px 30px;
+    margin: 30px 0;
+}
+
+.log-search-form .submit-btn {
+    background-color: #26a69a;
+    border: none;
+    color: #FFF;
+    padding: 5px 20px;
+    font-weight: bold;
+    float: right;
+    cursor: pointer;
+}
+
+.log-search-form .submit-btn:hover {
+    background-color: #32cfc0;
+    cursor: pointer;
+
+}
+
+.logs-table thead {
+    font-weight: bold;
+}
+
+.no-result-message,
+.results-message {
+    margin: 10px 0px 20px 0px;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    background-color: #fff2ac;
+    background-image: linear-gradient(to right, #ffe359 0%, #fff2ac 100%);
+}
+
+.error-input {
+    color: red;
+}
+
+.error-message {
+    color: red;
+}
+
+.logs-table th:not(:nth-child(1)),
+.logs-table td:not(:nth-child(1)) {
+    text-align: center !Important;
+}

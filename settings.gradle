@@ -1,0 +1,7 @@
+pluginManagement {
+	repositories {
+		gradlePluginPortal()
+	}
+}
+rootProject.name = 'kasahara-restapi'
+enableFeaturePreview('IMPROVED_POM_SUPPORT')

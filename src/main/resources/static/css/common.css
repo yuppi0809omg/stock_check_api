@@ -1,0 +1,27 @@
+html {
+    font-family: 'Signika', 'Kosugi Maru', sans-serif !Important;
+}
+
+.body-wrapper {
+    padding: 20px 90px;
+}
+
+nav {
+    background-color: #26a69a !Important;
+}
+
+/*フロート解除*/
+
+.group:before,
+.group:after {
+    content: "";
+    display: table;
+}
+
+.group:after {
+    clear: both;
+}
+
+.group {
+    zoom: 1;
+}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+</head>
+<body>
+<header class="header index-header" th:fragment="header">
+    <nav>
+        <div class="nav-wrapper">
+            <a class="brand-logo left" href="/mypage">API App</a>
+            <ul class="right" id="nav-mobile">
+                <li th:if="${userName}"><a class="github-login-btn" href="/logout">ログアウト</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+</body>
+</html>
